@@ -43,3 +43,14 @@
         name: datadog.dd.agent
   vars:
     datadog_api_key: "{{ dd_api_key }}"
+    datadog_checks:
+      http_check:
+        init_config:
+        instances:
+          - name: Datadog watch
+            url: "http://localhost:80"
+            method: GET
+    datadog_config:
+      log_level: INFO
+      dogstatsd_non_local_traffic: true
+      bind_host: 0.0.0.0
