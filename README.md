@@ -6,6 +6,11 @@
 ### Requirements
 - ansible >= 2.15
 
+### Infrastructure requirements
+- servers with Ubuntu and installed Docker
+- load balancer (e.a haproxy)
+- server with postgres/mysql cluster
+
 ### Before start
 - edit environment variables in vault by running ```make edit-vault```
 
