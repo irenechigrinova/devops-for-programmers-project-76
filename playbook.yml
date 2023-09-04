@@ -5,10 +5,12 @@
     - name: update cache
       ansible.builtin.apt:
         update_cache: true
+      tags: packages
 
     - name: Install pip
       ansible.builtin.include_role:
         name: geerlingguy.pip
+      tags: packages
 
 - name: Set env file
   hosts: all
@@ -17,6 +19,7 @@
       ansible.builtin.template:
         src: ./templates/.env.j2
         dest: .env
+      tags: app
 
 - name: Deploy app
   hosts: all
@@ -31,8 +34,10 @@
         restart: true
         pull: true
         env_file: ./.env
+      tags: app
 
 - name: Setup Datadog Agent
   hosts: webservers
   roles:
     - { role: datadog.datadog, become: yes }
+  tags: datadog
