@@ -1,4 +1,5 @@
 app_port: 80
+redmine_version: latest
 
 datadog_api_key: "{{ vault_dd_api_key }}"
 datadog_checks:
