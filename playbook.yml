@@ -18,7 +18,7 @@
     - name: copy env file
       ansible.builtin.template:
         src: ./templates/.env.j2
-        dest: .env
+        dest: /.env
       tags: app
 
 - name: Deploy app
@@ -33,7 +33,7 @@
         restart_policy: always
         restart: true
         pull: true
-        env_file: ./.env
+        env_file: /.env
       tags: app
 
 - name: Setup Datadog Agent
