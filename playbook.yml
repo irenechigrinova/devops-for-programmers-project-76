@@ -28,7 +28,8 @@
     - name: run app in docker
       community.docker.docker_container:
         name: app
-        image: "redmine:{{ redmine_version }}"
+        image: redmine
+        desired_image: latest
         published_ports: "{{ app_port }}:3000"
         restart_policy: always
         restart: true
