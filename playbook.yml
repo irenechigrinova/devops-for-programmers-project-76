@@ -29,7 +29,6 @@
       community.docker.docker_container:
         name: app
         image: redmine
-        desired_image: "{{ redmine_version }}"
         published_ports: "{{ app_port }}:3000"
         restart_policy: always
         restart: true
